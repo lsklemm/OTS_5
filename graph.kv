@@ -1,0 +1,355 @@
+<MainScreen>
+    BoxLayout:
+        orientation: "vertical"
+        adaptive_size: True
+
+
+        GridLayout:
+            rows: 4
+
+            GridLayout:
+                cols:1
+
+                Label:
+                    background_normal:''
+                    background_color: (255, 255, 255)
+                    canvas.before:
+                        Color:
+                            rgb: self.background_color
+                        Rectangle:
+                            size: self.size
+                            pos: self.pos
+                    id: graph_name
+                    font_name: 'SourceCodePro-Regular.ttf'
+                    font_size: '24sp'
+                    color: (0,0,0)
+                    text:"[color=#6d515c]Graph[/color]"
+                    markup: True
+            GridLayout:
+                cols:1
+                TextInput:
+                    font_name: 'SourceCodePro-Regular.ttf'
+                    hint_text:  ' Enter name...'
+                    background_color: (255, 255, 255)
+                    border: (50,50,50,50)
+                    selection_color: (0.427,  0.3176, 0.36, .5)
+                    cursor_color: (0.427,  0.3176, 0.36, 1)
+                    on_text: root.change_g_name(self.text)
+            GridLayout:
+                cols:4
+                size_hint: 1, 0.5
+                spacing:26
+                padding:10,0,10,10
+
+                MDRaisedButton:
+                    font_name: 'SourceCodePro-Regular.ttf'
+                    font_size: '12sp'
+                    md_bg_color: 0.427,  0.3176, 0.36, 1
+                    text: "[color=#000000]     Create graph     [/color]"
+                    pos_hint: {"center_x": .5,"center_y":.5}
+                    on_press: root.add_graph(root.return_change_g_name())
+                MDRaisedButton:
+                    font_name: 'SourceCodePro-Regular.ttf'
+                    font_size: '12sp'
+                    md_bg_color: 0.427,  0.3176, 0.36, 1
+                    text: "[color=#000000]     Save graph     [/color]"
+                    pos_hint: {"center_x": .5,"center_y":.5}
+                    on_press: root.save()
+                MDRaisedButton:
+                    font_name: 'SourceCodePro-Regular.ttf'
+                    font_size: '12sp'
+                    md_bg_color: 0.427,  0.3176, 0.36, 1
+                    text: "[color=#000000]     Change graph     [/color]"
+                    pos_hint: {"center_x": .5,"center_y":.5}
+                    on_press: root.change_graph(root.return_change_g_name())
+                MDRaisedButton:
+                    font_name: 'SourceCodePro-Regular.ttf'
+                    font_size: '12sp'
+                    md_bg_color: 0.427,  0.3176, 0.36, 1
+                    text: "[color=#000000]     Delete graph     [/color]"
+                    pos_hint: {"center_x": .5,"center_y":.5}
+                    on_press: root.delete_graph(root.return_change_g_name())
+
+
+            GridLayout:
+                cols:4
+                size_hint: 1, 1
+                spacing:26
+                padding:10,20,10,0
+
+                MDRaisedButton:
+                    font_name: 'SourceCodePro-Regular.ttf'
+                    font_size: '12sp'
+                    md_bg_color: 0.427,  0.3176, 0.36, 1
+                    text: "[color=#000000]               Decart multiplication             [/color]"
+                    pos_hint: {"center_x": .5,"center_y":.5}
+                    on_press: root.dekart_mutiplication(root.return_change_g_name())
+
+                MDRaisedButton:
+                    font_name: 'SourceCodePro-Regular.ttf'
+                    font_size: '12sp'
+                    md_bg_color: 0.427,  0.3176, 0.36, 1
+                    text: "[color=#000000]               Vector multiplication               [/color]"
+                    pos_hint: {"center_x": .5,"center_y":.5}
+                    on_press: root.vektor_mutiplication(root.return_change_g_name())
+                GridLayout:
+                    rows: 1
+
+        GridLayout:
+            rows: 2
+            padding:0,10,0,0
+
+            GridLayout:
+                cols:4
+                size_hint: 1, 1
+
+
+
+                GridLayout:
+                    rows:2
+                    padding:0,20,0,0
+                    TextInput:
+                        font_name: 'SourceCodePro-Regular.ttf'
+                        hint_text:  ' Vert name...'
+                        background_color: (255, 255, 255)
+                        border: (50,50,50,50)
+                        selection_color: (0.427,  0.3176, 0.36, .5)
+                        cursor_color: (0.427,  0.3176, 0.36, 1)
+                        on_text: root.v_name(self.text)
+                    TextInput:
+                        font_name: 'SourceCodePro-Regular.ttf'
+                        hint_text:  'New vert name...'
+                        background_color: (255, 255, 255)
+                        border: (50,50,50,50)
+                        selection_color: (0.427,  0.3176, 0.36, .5)
+                        cursor_color: (0.427,  0.3176, 0.36, 1)
+                        on_text: root.new_v_name(self.text)
+                    TextInput:
+                        font_name: 'SourceCodePro-Regular.ttf'
+                        hint_text:  ' Vert color...'
+                        background_color: (255, 255, 255)
+                        border: (50,50,50,50)
+                        selection_color: (0.427,  0.3176, 0.36, .5)
+                        cursor_color: (0.427,  0.3176, 0.36, 1)
+                        on_text: root.v_color(self.text)
+                    TextInput:
+                        font_name: 'SourceCodePro-Regular.ttf'
+                        hint_text:  'Vert text...'
+                        background_color: (255, 255, 255)
+                        border: (50,50,50,50)
+                        selection_color: (0.427,  0.3176, 0.36, .5)
+                        cursor_color: (0.427,  0.3176, 0.36, 1)
+                        on_text: root.v_text(self.text)
+            GridLayout:
+                cols:6
+                size_hint: 1, 0.3
+                spacing:15
+                padding:10,10,0,0
+
+                MDRaisedButton:
+                    font_name: 'SourceCodePro-Regular.ttf'
+                    font_size: '12sp'
+                    md_bg_color: 0.427,  0.3176, 0.36, 1
+                    text: "[color=#000000]Create vertex[/color]"
+                    pos_hint: {"center_x": .5,"center_y":.5}
+                    on_press: root.add_v(str(root.return_v_name()))
+                MDRaisedButton:
+                    font_name: 'SourceCodePro-Regular.ttf'
+                    font_size: '12sp'
+                    md_bg_color: 0.427,  0.3176, 0.36, 1
+                    text: "[color=#000000]Rename vertex[/color]"
+                    pos_hint: {"center_x": .5,"center_y":.5}
+                    on_press: root.set_new_v_name(root.return_v_name(), root.return_new_v_name())
+                MDRaisedButton:
+                    font_name: 'SourceCodePro-Regular.ttf'
+                    font_size: '12sp'
+                    md_bg_color: 0.427,  0.3176, 0.36, 1
+                    text: "[color=#000000]Add vert text[/color]"
+                    pos_hint: {"center_x": .5,"center_y":.5}
+                    on_press: root.set_v_text(root.return_v_name(), root.return_v_text())
+                MDRaisedButton:
+                    font_name: 'SourceCodePro-Regular.ttf'
+                    font_size: '12sp'
+                    md_bg_color: 0.427,  0.3176, 0.36, 1
+                    text: "[color=#000000]Add vert color[/color]"
+                    pos_hint: {"center_x": .5,"center_y":.5}
+                    on_press: root.set_v_color(root.return_v_name(),root.return_v_color())
+                MDRaisedButton:
+                    font_name: 'SourceCodePro-Regular.ttf'
+                    font_size: '12sp'
+                    md_bg_color: 0.427,  0.3176, 0.36, 1
+                    text: "[color=#000000]Delete vertex[/color]"
+                    pos_hint: {"center_x": .5,"center_y":.5}
+                    on_press: root.remove_v(str(root.return_v_name()))
+                MDRaisedButton:
+                    font_name: 'SourceCodePro-Regular.ttf'
+                    font_size: '12sp'
+                    md_bg_color: 0.427,  0.3176, 0.36, 1
+                    text: "[color=#000000]Vertex's info[/color]"
+                    pos_hint: {"center_x": .5,"center_y":.5}
+                    on_press: root.print_v_info(root.return_v_name())
+
+        GridLayout:
+            rows: 2
+            padding:0,20,0,0
+
+            GridLayout:
+                cols:4
+                size_hint: 1, 1
+
+                GridLayout:
+                    rows:2
+                    padding:0,20,0,0
+                    TextInput:
+                        font_name: 'SourceCodePro-Regular.ttf'
+                        hint_text:  ' V1 name...'
+                        background_color: (255, 255, 255)
+                        border: (50,50,50,50)
+                        selection_color: (0.427,  0.3176, 0.36, .5)
+                        cursor_color: (0.427,  0.3176, 0.36, 1)
+                        on_text: root.e_v_name1(self.text)
+                    TextInput:
+                        font_name: 'SourceCodePro-Regular.ttf'
+                        hint_text:  'V2 name...'
+                        background_color: (255, 255, 255)
+                        border: (50,50,50,50)
+                        selection_color: (0.427,  0.3176, 0.36, .5)
+                        cursor_color: (0.427,  0.3176, 0.36, 1)
+                        on_text: root.e_v_name2(self.text)
+                    TextInput:
+                        font_name: 'SourceCodePro-Regular.ttf'
+                        hint_text:  ' Edge name...'
+                        background_color: (255, 255, 255)
+                        border: (50,50,50,50)
+                        selection_color: (0.427,  0.3176, 0.36, .5)
+                        cursor_color: (0.427,  0.3176, 0.36, 1)
+                        on_text: root.e_name(self.text)
+                    TextInput:
+                        font_name: 'SourceCodePro-Regular.ttf'
+                        hint_text:  'Edge color...'
+                        background_color: (255, 255, 255)
+                        border: (50,50,50,50)
+                        selection_color: (0.427,  0.3176, 0.36, .5)
+                        cursor_color: (0.427,  0.3176, 0.36, 1)
+                        on_text: root.e_color(self.text)
+            GridLayout:
+                cols:4
+                size_hint: 1, 0.3
+                spacing:16
+                padding:10,10,0,5
+
+                MDRaisedButton:
+                    font_name: 'SourceCodePro-Regular.ttf'
+                    font_size: '12sp'
+                    md_bg_color: 0.427,  0.3176, 0.36, 1
+                    text: "[color=#000000]   Add oriented edge   [/color]"
+                    pos_hint: {"center_x": .5,"center_y":.5}
+                    on_press: root.add_e_oriented(root.return_e_v_name1(), root.return_e_v_name2(), root.return_e_name())
+                MDRaisedButton:
+                    font_name: 'SourceCodePro-Regular.ttf'
+                    font_size: '12sp'
+                    md_bg_color: 0.427,  0.3176, 0.36, 1
+                    text: "[color=#000000]   Add non-oriented edge   [/color]"
+                    pos_hint: {"center_x": .5,"center_y":.5}
+                    on_press: root.add_e_not_oriented(root.return_e_v_name1(), root.return_e_v_name2(), root.return_e_name())
+                MDRaisedButton:
+                    font_name: 'SourceCodePro-Regular.ttf'
+                    font_size: '12sp'
+                    md_bg_color: 0.427,  0.3176, 0.36, 1
+                    text: "[color=#000000]     Delete edge     [/color]"
+                    pos_hint: {"center_x": .5,"center_y":.5}
+                    on_press: root.remove_e(root.return_e_name())
+                MDRaisedButton:
+                    font_name: 'SourceCodePro-Regular.ttf'
+                    font_size: '12sp'
+                    md_bg_color: 0.427,  0.3176, 0.36, 1
+                    text: "[color=#000000]   Add edge color   [/color]"
+                    pos_hint: {"center_x": .5,"center_y":.5}
+                    on_press: root.set_e_color(root.return_e_name(), root.return_e_color())
+
+
+        GridLayout:
+            rows: 2
+            padding:0,20,0,0
+
+
+            GridLayout:
+                cols:7
+                size_hint: 1, 0.3
+                spacing:2
+                padding:10,10,0,10
+
+                MDRaisedButton:
+                    font_name: 'SourceCodePro-Regular.ttf'
+                    font_size: '10sp'
+                    md_bg_color: 0.427,  0.3176, 0.36, 1
+                    text: "[color=#000000]About graph[/color]"
+                    pos_hint: {"center_x": .5,"center_y":.5}
+                    on_press: root.print_graph_info()
+                MDRaisedButton:
+                    font_name: 'SourceCodePro-Regular.ttf'
+                    font_size: '10sp'
+                    md_bg_color: 0.427,  0.3176, 0.36, 1
+                    text: "[color=#000000]Hamilton cycles[/color]"
+                    pos_hint: {"center_x": .5,"center_y":.5}
+                    on_press: root.print_hamilton_cycles()
+                MDRaisedButton:
+                    font_name: 'SourceCodePro-Regular.ttf'
+                    font_size: '10sp'
+                    md_bg_color: 0.427,  0.3176, 0.36, 1
+                    text: "[color=#000000]Multi edges[/color]"
+                    pos_hint: {"center_x": .5,"center_y":.5}
+                    on_press: root.show_multi_e()
+                MDRaisedButton:
+                    font_name: 'SourceCodePro-Regular.ttf'
+                    font_size: '10sp'
+                    md_bg_color: 0.427,  0.3176, 0.36, 1
+                    text: "[color=#000000]Connected graph[/color]"
+                    pos_hint: {"center_x": .5,"center_y":.5}
+                    on_press: root.make_connected()
+
+                MDRaisedButton:
+                    font_name: 'SourceCodePro-Regular.ttf'
+                    font_size: '10sp'
+                    md_bg_color: 0.427,  0.3176, 0.36, 1
+                    text: "[color=#000000]About vertexes[/color]"
+                    pos_hint: {"center_x": .5,"center_y":.5}
+                    on_press: root.print_v_info('')
+
+                MDRaisedButton:
+                    font_name: 'SourceCodePro-Regular.ttf'
+                    font_size: '10sp'
+                    md_bg_color: 0.427,  0.3176, 0.36, 1
+                    text: "[color=#000000]About edges[/color]"
+                    pos_hint: {"center_x": .5,"center_y":.5}
+                    on_press: root.print_e_info()
+
+                MDRaisedButton:
+                    font_name: 'SourceCodePro-Regular.ttf'
+                    font_size: '10sp'
+                    md_bg_color: 0.427,  0.3176, 0.36, 1
+                    text: "[color=#000000]Diametr, radius, center[/color]"
+                    pos_hint: {"center_x": .5,"center_y":.5}
+                    on_press: root.find_c_r_d()
+
+            GridLayout:
+                cols:2
+                size_hint: 1, 0.3
+
+                GridLayout:
+                    cols:2
+
+                    Label:
+                        id: matrix
+                        background_normal:''
+                        background_color: (109, 81, 92)
+                        canvas.before:
+                            Color:
+                                rgb: (0,0,0)
+                            Rectangle:
+                                size: self.size
+                                pos: self.pos
+                        font_name: 'SourceCodePro-Regular.ttf'
+                        font_size: '16sp'
+                        text:"[color=#6d515c]Graph information[/color]"
+                        markup: True
